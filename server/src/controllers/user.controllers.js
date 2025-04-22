@@ -14,7 +14,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
     try {
         const admin = await User.findOne({ username });
-        if (admin && (await User.matchPassword(password))) {
+        if (admin && (await admin.isPasswordCorrect(password))) {
             const token = generateToken(admin._id);
             
             // Set token in cookies
