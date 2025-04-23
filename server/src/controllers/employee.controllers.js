@@ -81,6 +81,7 @@ export const getOutstandingReport = asyncHandler(async (req, res) => {
 
 export const getEmployeeReport = asyncHandler(async (req, res) => {
   const { employeeId } = req.params;
+  console.log(employeeId);
 
   const employee = await Employee.findOne({ employeeId });
 
